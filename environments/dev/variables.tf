@@ -1,0 +1,11 @@
+variable "aws_region" {
+  description = "The AWS region where resources will be created."
+  type        = string
+  default     = "us-central-1"
+}
+
+variable "environment" {
+  description = "The deployment environment (e.g., dev, staging, prod)."
+  type        = string
+  default     = "dev"
+}

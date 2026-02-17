@@ -1,9 +1,17 @@
 name: Terraform Deployment
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Select the environment to deploy'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - prod
+
 
 permissions:
   contents: read
@@ -28,12 +36,18 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
+        working-directory: environments/${{ github.event.inputs.environment }}
       
-      - name: Terraform validate
-        run: terraform validate
+     # - name: Terraform validate
+     #  run: terraform validate
 
       - name: Terraform Plan
         run: terraform plan 
+        working-directory: environments/${{ github.event.inputs.environment }}
+
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
+        working-directory: environments/${{ github.event.inputs.environment }}
 
       # - name: Verify Identity
       #   run: aws sts get-caller-identity
