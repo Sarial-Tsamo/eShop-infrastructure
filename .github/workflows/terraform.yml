@@ -37,9 +37,6 @@ jobs:
       - name: Terraform Init
         run: terraform init
         working-directory: environments/${{ github.event.inputs.environment }}
-      
-     # - name: Terraform validate
-     #  run: terraform validate
 
       - name: Terraform Plan
         run: terraform plan 
@@ -47,8 +44,8 @@ jobs:
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
+        env:
+          TF_VAR_db_password: ${{ secrets.DB_PASSWORD }}
         working-directory: environments/${{ github.event.inputs.environment }}
 
-      # - name: Verify Identity
-      #   run: aws sts get-caller-identity
       
