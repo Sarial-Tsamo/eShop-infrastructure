@@ -9,3 +9,6 @@ The AWS Infrastructure for the deployment of the eShop application.
 the eshop application is available here: [eShop app](https://github.com/Sarial-Tsamo/eShop.git)
 
 Due to an issue to the used aws account the infra has been refactored . 
+
+
+<img width="1024" height="1536" alt="Infra_without_alb" src="https://github.com/user-attachments/assets/dab7a54b-d0a1-4727-a146-ec05adab8f3f" />
