@@ -24,7 +24,7 @@ module "rds" {
 
     name_prefix     = local.name_prefix
     private_subnets = module.vpc.private_subnet_ids
-    rds_sg_id      = module.security.rds_sg_id
+    rds_sg_id       = module.security.rds_sg_id
      environment    = var.environment
     
     db_username    = "eshopadmin"
@@ -35,7 +35,7 @@ module "ecs" {
     source = "../../modules/ecs"
 
     name_prefix      = local.name_prefix
-    private_subnets  = module.vpc.private_subnets
+    private_subnets  = module.vpc.private_subnet_ids 
     ecs_sg_id        = module.security.ecs_sg_id
     environment      = var.environment
 

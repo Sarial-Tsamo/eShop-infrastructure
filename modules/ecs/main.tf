@@ -1,5 +1,5 @@
 resource "aws_ecs_cluster" "cluster" {
-    name = "§{var.name_prefix}-cluster"
+    name = "${var.name_prefix}-cluster"
 }
 
 resource "aws_cloudwatch_log_group" "this" {
