@@ -62,6 +62,6 @@ module "alb" {
 module "acm" {
     source = "../../modules/acm"
 
-    domain_name = "tsamosarial.systeme.io/eshop"
+    domain_name = "eshopnorthernmountain.com"
     zone_id     = var.route53_zone_id
 }
