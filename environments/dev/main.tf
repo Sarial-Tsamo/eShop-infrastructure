@@ -30,3 +30,19 @@ module "rds" {
     db_username    = "eshopadmin"
     db_password    = var.db_password
 }
+
+module "ecs" {
+    source = "../../modules/ecs"
+
+    name_prefix      = local.name_prefix
+    private_subnets  = module.vpc.private_subnets
+    ecs_sg_id        = module.security.ecs_sg_id
+    environment      = var.environment
+
+    db_endpoint      = module.rds.db_endpoint
+    db_name          = module.rds.db_name
+    db_username      = module.rds.db_username
+    db_password      = var.db_password
+
+    container_image  = "sarialbebeto/eshop-app:latest"
+}
