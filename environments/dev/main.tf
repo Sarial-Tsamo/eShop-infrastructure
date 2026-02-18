@@ -55,5 +55,13 @@ module "alb" {
     vpc_id          = module.vpc.vpc_id
     public_subnets  = module.vpc.public_subnet_ids
     alb_sg_id       = module.security.alb_sg_id
+    certificate_arn = module.acm.certificate_arn
 }
 
+
+module "acm" {
+    source = "../../modules/acm"
+
+    domain_name = "tsamosarial.systeme.io/eshop"
+    zone_id     = var.route53_zone_id
+}

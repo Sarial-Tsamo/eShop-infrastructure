@@ -13,3 +13,7 @@ variable "public_subnets" {
 variable "alb_sg_id" {
     type = string
 }
+
+variable "certificate_arn" {
+    type = string
+}
