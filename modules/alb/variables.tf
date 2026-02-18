@@ -1,5 +1,5 @@
 variable "name_prefix" {
-  tpye = string
+  type = string
 }
 
 variable "vpc_id" {

@@ -57,4 +57,3 @@ module "alb" {
     alb_sg_id       = module.security.alb_sg_id
 }
 
-target_group_arn = module.alb.target_group_arn
