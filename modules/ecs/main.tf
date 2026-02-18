@@ -1,4 +1,4 @@
-resource "aws_ecs_cluster" "cluster" {
+resource "aws_ecs_cluster" "this" {
     name = "${var.name_prefix}-cluster"
 }
 
@@ -83,7 +83,7 @@ resource "aws_ecs_service" "this" {
     name                 = "${var.name_prefix}-service"
     cluster              = aws_ecs_cluster.this.id
     task_definition      = aws_ecs_task_definition.this.arn
-    lauch_type           = "FARGATE"
+    launch_type           = "FARGATE"
     desired_count        = 1
 
     network_configuration {
