@@ -78,4 +78,26 @@ resource "aws_ecs_task_definition" "this" {
     ])
 }
 
-                
+
+resource "aws_ecs_service" "this" {
+    name                 = "${var.name_prefix}-service"
+    cluster              = aws_ecs_cluster.this.id
+    task_definition      = aws_ecs_task_definition.this.arn
+    lauch_type           = "FARGATE"
+    desired_count        = 1
+
+    network_configuration {
+       subnets           = var.private_subnets
+       security_groups   = [var.ecs_sg_id]
+       assign_public_ip  = false
+    }
+
+    load_balancer {
+      target_group_arn = var.target_group_arn
+      container_name   = "eshop-app"
+      container_port   = 8080
+    }
+
+    depends_on = [aws_ecs_task_definition.this]
+}
+               

@@ -33,3 +33,7 @@ variable "container_image" {
 variable "environment" {
     type = string
 }
+
+variable "target_group_arn" {
+    type = string
+}

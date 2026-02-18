@@ -45,4 +45,16 @@ module "ecs" {
     db_password      = var.db_password
 
     container_image  = "sarialbebeto/eshop-app:latest"
+    target_group_arn = module.alb.target_group_arn
 }
+
+module "alb" {
+    source = "../../modules/alb"
+
+    name_prefix     = local.name_prefix
+    vpc_id          = module.vpc.vpc_id
+    public_subnets  = module.vpc.public_subnet_ids
+    alb_sg_id       = module.security.alb_sg_id
+}
+
+target_group_arn = module.alb.target_group_arn
