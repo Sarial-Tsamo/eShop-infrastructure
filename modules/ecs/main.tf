@@ -44,7 +44,7 @@ resource "aws_ecs_task_definition" "this" {
             essential  = true
             portMappings = [
                 {
-                    containerPort = 8080
+                    containerPort = 443
                     protocol      = "tcp"
                 }
             ]
@@ -89,15 +89,8 @@ resource "aws_ecs_service" "this" {
     network_configuration {
        subnets           = var.private_subnets
        security_groups   = [var.ecs_sg_id]
-       assign_public_ip  = false
+       assign_public_ip  = true
     }
 
-    load_balancer {
-      target_group_arn = var.target_group_arn
-      container_name   = "eshop-app"
-      container_port   = 8080
-    }
-
-    depends_on = [aws_ecs_task_definition.this]
 }
                
