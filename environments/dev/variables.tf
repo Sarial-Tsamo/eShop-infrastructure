@@ -23,3 +23,7 @@ variable "container_image" {
 variable "database_url" {
  type = string
 }
+
+variable "name_prefix" {
+    type = string
+}
