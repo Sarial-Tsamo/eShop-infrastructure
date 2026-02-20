@@ -52,6 +52,9 @@ module "ecs" {
 
 module "ec2" {
     source           = "../../modules/ec2"
+
+    name_prefix      = local.name_prefix
+    
     public_subnet_id = module.vpc.public_subnet_ids[0]
     ec2_sg_id        = module.security.ec2_sg_id
 }
