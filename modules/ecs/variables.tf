@@ -34,3 +34,7 @@ variable "private_subnets" {
    type = list(string)
 }
 
+variable "database_url" {
+   type   = string
+}
+

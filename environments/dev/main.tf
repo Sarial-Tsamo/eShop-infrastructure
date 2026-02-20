@@ -36,7 +36,8 @@ module "ecs" {
     source           = "../../modules/ecs"
 
     name_prefix      = local.name_prefix
-    public_subnets   = module.vpc.public_subnet_ids 
+
+    private_subnets  = module.vpc.private_subnets 
     ecs_sg_id        = module.security.ecs_sg_id
     environment      = var.environment
 
@@ -45,7 +46,8 @@ module "ecs" {
     db_username      = module.rds.db_username
     db_password      = var.db_password
 
-    container_image  = "sarialbebeto/eshop-app:latest"
+    container_image  = var.container_image
+    database_url     = var.database_url
 }
 
 module "ec2" {
