@@ -60,7 +60,7 @@ resource "aws_internet_gateway" {
  vpc_id  = aws_vpc.this.id
 
  tags = {
- Name = "${var.name_prefix}-igw"
+  Name = "${var.name_prefix}-igw"
   }
 }
 
