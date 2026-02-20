@@ -14,3 +14,8 @@ variable "az_count" {
     type        = number
     default     = 2
 }
+
+variable "vpc_cidr_block" {
+  description = "The CIDR block for the VPC"
+  type        = string
+}
