@@ -52,6 +52,18 @@ resource "aws_subnet" "private" {
   }
 } 
 
+#######################
+# IgW
+######################
+
+resource "aws_internet_gateway" {
+ vpc_id  = aws_vpc.this.id
+
+ tags = {
+ Name = "${var.name_prefix}-igw"
+}
+
+
 ##########################
 # Public Route Table
 ##########################
