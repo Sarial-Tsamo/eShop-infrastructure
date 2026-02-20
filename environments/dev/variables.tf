@@ -25,5 +25,6 @@ variable "database_url" {
 }
 
 variable "name_prefix" {
-    type = string
+  type = string
+  default = "eshop-${var.environment}"
 }
