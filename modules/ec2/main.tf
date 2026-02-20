@@ -19,12 +19,18 @@ resource "aws_eip" "reverse_proxy_eip" {
 }
 
 data "aws_ami" "amazon_linux" {
-   most_recent   = true
+  most_recent   = true
 
-   owners        = ["amazon"]
+  owners        = ["amazon"]
 
-   filter {
-    name     = "name"
-    values   = ["a12023-ami-*-x86_64"]
-    }
+  filter {
+   name     = "name"
+   values   = ["al2023-ami-*-x86_64"]
+  }
+
+  filter {
+    name     = "virtualization-type"
+    values   = ["hvm"]
+  }
+
 }
