@@ -42,6 +42,9 @@ jobs:
       - name: Terraform Init
         run: terraform init
         working-directory: environments/${{ github.event.inputs.environment }}
+      - name: Terraform destroy
+        run: terraform destroy
+        working-directory: environments/${{ github.event.inputs.environment }}
 
       - name: Terraform Plan
         run: terraform plan -input=false
