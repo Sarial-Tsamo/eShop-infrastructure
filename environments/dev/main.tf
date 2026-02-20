@@ -37,7 +37,7 @@ module "ecs" {
 
     name_prefix      = local.name_prefix
 
-    private_subnets  = module.vpc.private_subnets 
+    private_subnets  = module.vpc.private_subnet_ids
     ecs_sg_id        = module.security.ecs_sg_id
     environment      = var.environment
 
@@ -52,7 +52,7 @@ module "ecs" {
 
 module "ec2" {
     source           = "../../modules/ec2"
-    public_subnet_id = module.vpc.public_subnets[0]
+    public_subnet_id = module.vpc.public_subnet_ids[0]
     ec2_sg_id        = module.security.ec2_sg_id
 }
 

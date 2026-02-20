@@ -16,3 +16,10 @@ variable "db_password" {
   sensitive   = true
 }
 
+variable "container_image" {
+  type = string
+}
+
+variable "database_url" {
+ type = string
+}
