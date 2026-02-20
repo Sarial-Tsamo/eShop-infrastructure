@@ -2,10 +2,6 @@ variable "name_prefix" {
     type = string
 }
 
-variable "private_subnets" {
-    type = list(string)
-}
-
 variable "ecs_sg_id" {
     type = string 
 }
@@ -34,6 +30,7 @@ variable "environment" {
     type = string
 }
 
-variable "target_group_arn" {
-    type = string
+variable "public_subnets" {
+   type = list(string)
 }
+
