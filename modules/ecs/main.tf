@@ -87,9 +87,9 @@ resource "aws_ecs_service" "this" {
     desired_count        = 1
 
     network_configuration {
-       subnets           = var.public_subnets
+       subnets           = var.private_subnets
        security_groups   = [var.ecs_sg_id]
-       assign_public_ip  = true
+       assign_public_ip  = false
     }
 
 }

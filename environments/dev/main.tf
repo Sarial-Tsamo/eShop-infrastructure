@@ -33,7 +33,7 @@ module "rds" {
 }
 
 module "ecs" {
-    source = "../../modules/ecs"
+    source           = "../../modules/ecs"
 
     name_prefix      = local.name_prefix
     public_subnets   = module.vpc.public_subnet_ids 
@@ -48,4 +48,9 @@ module "ecs" {
     container_image  = "sarialbebeto/eshop-app:latest"
 }
 
+module "ec2" {
+    source           = "../../modules/ec2"
+    public_subnet_id = module.vpc.public_subnets[0]
+    ec2_sg_id        = module.security.ec2_sg_id
+}
 
