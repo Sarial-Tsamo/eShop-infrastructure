@@ -61,6 +61,7 @@ resource "aws_internet_gateway" {
 
  tags = {
  Name = "${var.name_prefix}-igw"
+  }
 }
 
 
