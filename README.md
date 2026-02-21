@@ -11,4 +11,5 @@ the eshop application is available here: [eShop app](https://github.com/Sarial-T
 Due to an issue to the used aws account the infra has been refactored . 
 
 
-<img width="1024" height="1536" alt="Infra_without_alb" src="https://github.com/user-attachments/assets/dab7a54b-d0a1-4727-a146-ec05adab8f3f" />
+
+<img width="1536" height="1024" alt="IaC" src="https://github.com/user-attachments/assets/ed2547d1-9474-4494-abec-dc2e2365a6a4" />
