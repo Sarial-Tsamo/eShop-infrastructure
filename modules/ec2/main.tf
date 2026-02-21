@@ -16,6 +16,10 @@ resource "aws_instance" "reverse_proxy" {
 resource "aws_eip" "reverse_proxy_eip" {
   instance    = aws_instance.reverse_proxy.id
   domain      = "vpc"
+
+  tags = {
+    Name = "${var.name_prefix}-eip"
+  }
 }
 
 data "aws_ami" "amazon_linux" {
@@ -34,3 +38,9 @@ data "aws_ami" "amazon_linux" {
   }
 
 }
+
+resource "aws_eip_association" "reverse_proxy" {
+  instance_id   = aws_instance.reverse_proxy.id
+  allocation_id = aws_eip.reverse_proxy_eip.id
+}
+
