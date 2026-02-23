@@ -44,7 +44,7 @@ resource "aws_ecs_task_definition" "this" {
             essential  = true
             portMappings = [
                 {
-                    containerPort = 443
+                    containerPort = 80
                     protocol      = "tcp"
                 }
             ]
@@ -97,7 +97,7 @@ resource "aws_ecs_service" "this" {
         container_name    = "eshop-app"
         container_port    = 8000
     }
-    
+
 
 }
                
